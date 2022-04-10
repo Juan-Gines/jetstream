@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/componentes',function(){
     return view('eje_components');
@@ -29,4 +29,14 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+
+//ruta de pruebas del middelware age controla mayores de edad
+Route::get('prueba',function(){
+    return "Has accedido correctamente a esta ruta.";
+})->middleware(['auth:sanctum','age']);
+
+Route::get('no-autorizado', function(){
+    return "No tienes edad suficiente";
 });

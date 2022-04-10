@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{{-- Nos encontramos en la estructura, plantilla que van a tener todas las paginas de nuestra aplicación
+    Viene renderizada de la clase app\View\Components\AppLayout.php--}}
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -15,23 +17,17 @@
 
         @livewireStyles
 
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
+
+            {{-- LLamamos a un componente livewire llamado navigation-menu --}}
             @livewire('navigation-menu')
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+            <!-- Quitamos el header que es muy feo y solo utilizamos la barra de navegacion -->            
 
             <!-- Page Content -->
             <main>
@@ -42,5 +38,7 @@
         @stack('modals')
 
         @livewireScripts
+        <!-- Scripts -->
+        <script src="{{ mix('js/app.js') }}" ></script>
     </body>
 </html>
