@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+
+//ejemplos de componentes
 Route::get('/componentes',function(){
     return view('eje_components');
 });

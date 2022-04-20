@@ -58,4 +58,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    //creamos el método que nos va a permitir recuperar el profile del user
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
+    }
+
+    public function adress(){
+        return $this->hasOne(Adress::class);
+    }
 }
