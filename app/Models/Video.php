@@ -4,15 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Adress extends Model
+class Video extends Model
 {
     use HasFactory;
+    
+    //relacion 1 a muchos (inversa)
 
-    protected $table = 'adresses';
-
-    //relacion 1 a 1 (inversa)
     public function user(){
         return $this->belongsTo(User::class);
     }

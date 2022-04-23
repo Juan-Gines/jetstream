@@ -60,6 +60,7 @@ class User extends Authenticatable
     ];
 
     //creamos el método que nos va a permitir recuperar el profile del user
+    //relación 1 a 1
 
     public function profile(){
         return $this->hasOne(Profile::class);
@@ -67,5 +68,21 @@ class User extends Authenticatable
 
     public function adress(){
         return $this->hasOne(Adress::class);
+    }
+
+    //relacion 1 a muchos
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
+
+    public function videos(){
+        return $this->hasMany(Video::class);
+    }
+
+    //relación muchos a muchos
+
+    public function roles(){
+        return $this->belongsToMany(Role::class);
     }
 }

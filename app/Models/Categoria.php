@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class Categoria extends Model
 {
     use HasFactory;
 
-    //relacion 1 a 1 (inversa)
-
-    public function user(){
-        return $this->belongsTo(User::class);
+    //relación 1 a muchos
+    
+    public function posts(){
+        return $this->hasMany(Post::class);
     }
 }
