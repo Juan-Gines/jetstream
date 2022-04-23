@@ -18,10 +18,16 @@ class Post extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    
+
     //relación polimorfica 1 a 1
     
     public function image(){
         return $this->morphOne(Image::class,'imageable');
+    }
+
+    //relación 1 a muchos polimorfica
+
+    public function comments(){
+        return $this->morphMany(Comment::class,'commentable');
     }
 }
